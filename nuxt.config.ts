@@ -15,7 +15,7 @@ export default defineNuxtConfig({
       {
         hid: "og:url",
         property: "og:url",
-        content: "https://eloquent-volhard-d4031f.netlify.app",
+        content: "https://erasermotorphantomizer.netlify.app",
       },
       {
         hid: "og:title",
