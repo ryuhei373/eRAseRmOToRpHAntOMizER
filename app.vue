@@ -6,7 +6,7 @@ const { input, eraserMotorPhantomized } = useEraserMotorPhantomize()
 const twitterShareUrl = computed(
   () =>
     `https://twitter.com/intent/tweet?url=https://eloquent-volhard-d4031f.netlify.app&text=${encodeURIComponent(
-      eraserMotorPhantomized.value + " #eRAsoRmOToRpHAntOMizER"
+      eraserMotorPhantomized.value + " #eRAseRmOToRpHAntOMizER"
     )}`
 )
 </script>
@@ -27,7 +27,7 @@ const twitterShareUrl = computed(
       >
         <div class="flex title-font font-medium items-center">
           <span class="ml-0 sm:ml-3 text-gray-100 text-xl"
-            >eRAsoRmOToRpHAntOMizER</span
+            >eRAseRmOToRpHAntOMizER</span
           >
         </div>
       </div>

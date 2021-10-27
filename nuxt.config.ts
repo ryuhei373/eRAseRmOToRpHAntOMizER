@@ -2,7 +2,7 @@ import { defineNuxtConfig } from "nuxt3"
 
 export default defineNuxtConfig({
   meta: {
-    title: "eRAsoRmOToRpHAntOMizER",
+    title: "eRAseRmOToRpHAntOMizER",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -20,7 +20,7 @@ export default defineNuxtConfig({
       {
         hid: "og:title",
         property: "og:title",
-        content: "eRAsoRmOToRpHAntOMizER",
+        content: "eRAseRmOToRpHAntOMizER",
       },
       {
         hid: "og:description",
