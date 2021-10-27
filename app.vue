@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import { useEraserMotorPhantomize } from "./composables/useEraserMotorPhantomize"
+
+const { input, eraserMotorPhantomized } = useEraserMotorPhantomize()
+
+const twitterShareUrl = computed(
+  () =>
+    `https://twitter.com/intent/tweet?url=https://eloquent-volhard-d4031f.netlify.app&text=${encodeURIComponent(
+      eraserMotorPhantomized.value + " #eRAsoRmOToRpHAntOMizER"
+    )}`
+)
+</script>
+
 <template>
   <div>
     <header class="bg-indigo-500 body-font">
@@ -20,19 +33,10 @@
       </div>
     </header>
 
-    <section class="text-gray-600 body-font">
+    <section>
       <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-col text-center w-full mb-12">
-          <h1
-            class="
-              sm:text-3xl
-              text-2xl
-              font-medium
-              title-font
-              mb-4
-              text-gray-900
-            "
-          >
+          <h1 class="text-4xl break-all text-gray-900 eraser-motor-phantomized">
             {{ eraserMotorPhantomized }}
           </h1>
         </div>
@@ -78,7 +82,7 @@
               "
             />
           </div>
-          <a class="w-full sm:w-1/3" v-bind:href="twitterShareUrl">
+          <a class="w-full sm:w-1/3" :href="twitterShareUrl" target="_blank">
             <button
               class="
                 text-white
@@ -116,16 +120,8 @@
   </div>
 </template>
 
-<script type="ts">
-import { useEraserMotorPhantomize } from "./composables/useEraserMotorPhantomize"
-
-export default {
-  setup() {
-    const { input, eraserMotorPhantomized } = useEraserMotorPhantomize()
-
-    const twitterShareUrl = computed(() => `https://twitter.com/intent/tweet?url=https://eloquent-volhard-d4031f.netlify.app&text=${eraserMotorPhantomized.value}&hashtags=eRAsoRmOToRpHAntOMizER`)
-
-    return { input, eraserMotorPhantomized, twitterShareUrl }
-  }
+<style>
+.eraser-motor-phantomized {
+  font-family: "Anton", sans-serif;
 }
-</script>
+</style>
