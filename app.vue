@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import { useEraserMotorPhantomize } from "./composables/useEraserMotorPhantomize"
+
+const { input, eraserMotorPhantomized } = useEraserMotorPhantomize()
+
+const twitterShareUrl = computed(
+  () =>
+    `https://twitter.com/intent/tweet?url=https://eloquent-volhard-d4031f.netlify.app&text=${encodeURIComponent(
+      eraserMotorPhantomized.value + " #eRAsoRmOToRpHAntOMizER"
+    )}`
+)
+</script>
+
 <template>
   <div>
     <header class="bg-indigo-500 body-font">
@@ -8,29 +21,22 @@
           flex flex-wrap
           p-5
           flex-col
-          md:flex-row
+          sm:flex-row
           items-center
         "
       >
-        <div class="flex title-font font-medium items-center mb-4 md:mb-0">
-          <span class="ml-3 text-gray-100 text-xl">eRAsoRmOToRpHAntOMizER</span>
+        <div class="flex title-font font-medium items-center">
+          <span class="ml-0 sm:ml-3 text-gray-100 text-xl"
+            >eRAsoRmOToRpHAntOMizER</span
+          >
         </div>
       </div>
     </header>
 
-    <section class="text-gray-600 body-font">
+    <section>
       <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-col text-center w-full mb-12">
-          <h1
-            class="
-              sm:text-3xl
-              text-2xl
-              font-medium
-              title-font
-              mb-4
-              text-gray-900
-            "
-          >
+          <h1 class="text-4xl break-all text-gray-900 eraser-motor-phantomized">
             {{ eraserMotorPhantomized }}
           </h1>
         </div>
@@ -39,7 +45,7 @@
             flex
             lg:w-2/3
             w-full
-            sm:flex-row
+            sm:flex-row sm:justify-center
             flex-col
             mx-auto
             px-8
@@ -51,10 +57,10 @@
         >
           <div class="relative flex-grow w-full">
             <input
-              v-model="mainText"
+              v-model="input"
               type="text"
-              id="main"
-              name="main"
+              id="inputtedText"
+              name="inputtedText"
               class="
                 w-full
                 bg-gray-100 bg-opacity-50
@@ -76,7 +82,7 @@
               "
             />
           </div>
-          <a v-bind:href="twitterShareUrl">
+          <a class="w-full sm:w-1/3" :href="twitterShareUrl" target="_blank">
             <button
               class="
                 text-white
@@ -90,7 +96,8 @@
                 text-lg
                 inline-flex
                 items-center
-                justify-evenly
+                justify-center
+                w-full
               "
             >
               <svg
@@ -113,50 +120,8 @@
   </div>
 </template>
 
-<script type="ts">
-export default {
-  setup() {
-    const mainText = ref("eraser motor phantom")
-
-    const eraserMotorPhantomized = computed(() => {
-      if (mainText.value.length <= 1) {
-        return mainText.value
-      }
-
-      if (mainText.value.split(" ").join("").toLowerCase() === "erasermotormaximum"){
-        return "ErAseRmoToR maXimUM"
-      } else if (mainText.value.split(" ").join("").toLowerCase() === "eraserenginedistorted"){
-        return "ERaSeR EnGinE DistorteD"
-      } else if (mainText.value.split(" ").join("").toLowerCase() === "eraserengine"){
-        return "ERASER ENGINE"
-      }
-
-      const words = mainText.value.split(" ")
-
-      const a = words.map(word => {
-        const middleLetter = word.slice(1).slice(0, -1)
-        let result = [];
-        for (let i = 0; i < middleLetter.length / 2; i++) {
-            result.push(middleLetter.substr(i * 2, 2));
-        }
-
-        const convertedMiddleLetter = result.map((w, index) => {
-          if(index % 2 === 0){
-            return w.toUpperCase()
-          } else {
-            return w.toLowerCase()
-          }
-        })
-
-        return word.charAt(0).toLowerCase() + convertedMiddleLetter.join("") + word.charAt(word.length - 1).toUpperCase()
-      })
-
-      return a.join("")
-    })
-
-    const twitterShareUrl = computed(() => `https://twitter.com/intent/tweet?url=https://eloquent-volhard-d4031f.netlify.app&text=${eraserMotorPhantomized.value}&hashtags=eRAsoRmOToRpHAntOMizER`)
-
-    return { mainText, eraserMotorPhantomized, twitterShareUrl }
-  }
+<style>
+.eraser-motor-phantomized {
+  font-family: "Anton", sans-serif;
 }
-</script>
+</style>
