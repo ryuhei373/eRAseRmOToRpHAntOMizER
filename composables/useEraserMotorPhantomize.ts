@@ -26,6 +26,11 @@ export const useEraserMotorPhantomize = () => {
     return input.value
       .split(" ")
       .map((word) => {
+        // 1文字だったらその1文字を小文字にして返す
+        if (word.length <= 1) {
+          return word.toLowerCase()
+        }
+
         const middleLetter = word.slice(1).slice(0, -1)
         const result: string[] = []
         for (let i = 0; i < middleLetter.length / 2; i++) {
@@ -49,5 +54,12 @@ export const useEraserMotorPhantomize = () => {
       .join("")
   })
 
-  return { input, eraserMotorPhantomized }
+  const twitterShareUrl = computed(
+    () =>
+      `https://twitter.com/intent/tweet?url=https://erasermotorphantomizer.netlify.app&text=${encodeURIComponent(
+        eraserMotorPhantomized.value + " #eRAseRmOToRpHAntOMizER"
+      )}`
+  )
+
+  return { input, eraserMotorPhantomized, twitterShareUrl }
 }
