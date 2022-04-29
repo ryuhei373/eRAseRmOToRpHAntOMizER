@@ -7,7 +7,7 @@
   },
   "devDependencies": {
     "nuxt-windicss": "latest",
-    "nuxt3": "latest",
+    "nuxt": "^3.0.0-rc.1",
     "prettier": "^2.5.0",
     "prettier-plugin-tailwind": "^2.2.12"
   }
